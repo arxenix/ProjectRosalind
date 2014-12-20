@@ -5,7 +5,6 @@ import me.ankur.rosalind.util.GenericUtil;
 import me.ankur.rosalind.util.Util;
 
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Sundara on 12/19/14.
@@ -18,7 +17,7 @@ public class CONS {
      */
 
     public static void main(String[] args) {
-        List<FastaSection> sections = Util.readFasta("CONS");
+        List<FastaSection> sections = Util.readFasta("rosalind_cons");
         int size = sections.get(0).getSequence().getSequence().length;
 
         int[][] counts = new int[4][size];
@@ -70,12 +69,15 @@ public class CONS {
                     break;
             }
         }
-        System.out.println(cons.toString());
 
-        System.out.println("A: "+GenericUtil.arrayJoin(counts[0]," "));
-        System.out.println("C: "+GenericUtil.arrayJoin(counts[1]," "));
-        System.out.println("G: "+GenericUtil.arrayJoin(counts[2]," "));
-        System.out.println("T: "+GenericUtil.arrayJoin(counts[3]," "));
+
+        GenericUtil.pasteData(
+                cons.toString(),
+                "A: " + GenericUtil.arrayJoin(counts[0], " "),
+                "C: " + GenericUtil.arrayJoin(counts[1], " "),
+                "G: " + GenericUtil.arrayJoin(counts[2], " "),
+                "T: " + GenericUtil.arrayJoin(counts[3], " ")
+        );
     }
 
     public static int getNumericVal(char c) {

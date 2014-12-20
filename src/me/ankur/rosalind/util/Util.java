@@ -1,7 +1,7 @@
 package me.ankur.rosalind.util;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class Util {
 
-    public static List<FastaSection> readFasta(String s) {
+    public static List<FastaSection> readFasta(String name) {
         List<FastaSection> sections = new ArrayList<FastaSection>();
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(Util.class.getResourceAsStream("/resources/" + s + ".txt")));
+            BufferedReader in = new BufferedReader(new InputStreamReader(Util.class.getResourceAsStream("/resources/" + name + ".txt")));
 
             String label = null;
             StringBuilder seq = new StringBuilder();
@@ -22,7 +22,7 @@ public class Util {
             while((line=in.readLine())!=null) {
                 if(line.startsWith(">")) {
                     if(label!=null) {
-                        sections.add(new FastaSection(label, new GeneticSequence(seq.toString())));
+                        sections.add(new FastaSection(label, new Sequence(seq.toString())));
                     }
                     label = line.substring(1);
                     seq = new StringBuilder();
@@ -32,11 +32,25 @@ public class Util {
                 }
             }
             if(label!=null) {
-                sections.add(new FastaSection(label, new GeneticSequence(seq.toString())));
+                sections.add(new FastaSection(label, new Sequence(seq.toString())));
             }
             in.close();
         }
         catch (Exception ignored) {}
         return sections;
+    }
+
+    public static String readStringFile(String name) {
+        StringBuilder s = new StringBuilder();
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(Util.class.getResourceAsStream("/resources/" + name + ".txt")));
+            String line;
+            while ((line = in.readLine()) != null) {
+                s.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return s.toString();
     }
 }

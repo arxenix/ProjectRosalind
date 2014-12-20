@@ -5,9 +5,9 @@ package me.ankur.rosalind.util;
  */
 public class FastaSection {
     private String label;
-    private GeneticSequence sequence;
+    private Sequence sequence;
 
-    public FastaSection(String label, GeneticSequence sequence) {
+    public FastaSection(String label, Sequence sequence) {
         this.label = label;
         this.sequence = sequence;
     }
@@ -16,7 +16,7 @@ public class FastaSection {
         return label;
     }
 
-    public GeneticSequence getSequence() {
+    public Sequence getSequence() {
         return sequence;
     }
 }
