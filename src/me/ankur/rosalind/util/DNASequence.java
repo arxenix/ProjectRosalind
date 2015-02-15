@@ -12,6 +12,14 @@ public class DNASequence extends Sequence {
         super(s);
     }
 
+    public static char complement(char c) {
+        if (c == 'A') return 'T';
+        if (c == 'T') return 'A';
+        if (c == 'C') return 'G';
+        if (c == 'G') return 'C';
+        return '\0';
+    }
+
     public RNASequence transcribe() {
         return new RNASequence(toString().replaceAll("T", "U"));
     }
@@ -25,6 +33,12 @@ public class DNASequence extends Sequence {
                         .replaceAll("G", "X")
                         .replaceAll("C", "G")
                         .replaceAll("X", "C"));
+    }
+
+    public DNASequence reverseComplement() {
+        DNASequence ret = complement();
+        ret.reverse();
+        return ret;
     }
 
     public double transitionTransversionsRatio(DNASequence d2) {

@@ -5,6 +5,8 @@ package me.ankur.rosalind.util;
  */
 public class SequenceMotif {
 
+    //TODO complete abstract sequence motif lookup
+
     /*private List<Section> sections = new ArrayList<Section>();
 
     public SequenceMotif(String seq) {

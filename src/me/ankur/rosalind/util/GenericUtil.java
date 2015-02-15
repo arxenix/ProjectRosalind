@@ -40,6 +40,16 @@ public class GenericUtil {
         return sb.toString();
     }
 
+    public static String listJoin(List list, String joiner) {
+        StringBuilder sb = new StringBuilder();
+        for (Object o : list) {
+            sb.append(o.toString());
+            sb.append(joiner);
+        }
+        sb.delete(sb.length() - joiner.length(), sb.length());
+        return sb.toString();
+    }
+
     public static void pasteData(List<String> text) {
         pasteData(text.toArray(new String[text.size()]));
     }
