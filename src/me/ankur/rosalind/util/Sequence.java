@@ -26,6 +26,15 @@ public class Sequence {
         }
     }
 
+    public int hammingDistance(Sequence s2) {
+        int distance = 0;
+        for (int i = 0; i < sequence.length; i++) {
+            if (sequence[i] != s2.sequence[i])
+                distance++;
+        }
+        return distance;
+    }
+
     public String toString() {
         return new String(sequence);
     }

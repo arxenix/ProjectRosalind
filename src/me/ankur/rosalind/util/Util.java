@@ -35,8 +35,9 @@ public class Util {
                 sections.add(new FastaSection(label, new Sequence(seq.toString())));
             }
             in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch (Exception ignored) {}
         return sections;
     }
 

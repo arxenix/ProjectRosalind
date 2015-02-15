@@ -26,4 +26,22 @@ public class DNASequence extends Sequence {
                         .replaceAll("C", "G")
                         .replaceAll("X", "C"));
     }
+
+    public double transitionTransversionsRatio(DNASequence d2) {
+        double transitions = 0; //purines (A-G)
+        double transversions = 0; //purines (C-T)
+        for (int i = 0; i < getSequence().length; i++) {
+            char a = getSequence()[i];
+            char b = d2.getSequence()[i];
+            if (a != b) {
+                if ((a == 'A' || a == 'G') && (b == 'A' || b == 'G'))
+                    transitions++;
+                else if ((a == 'C' || a == 'T') && (b == 'C' || b == 'T'))
+                    transitions++;
+                else
+                    transversions++;
+            }
+        }
+        return transitions / transversions;
+    }
 }

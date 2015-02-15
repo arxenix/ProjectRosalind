@@ -3,6 +3,7 @@ package me.ankur.rosalind.util;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+import java.util.List;
 
 /**
  * Created by Sundara on 12/19/14.
@@ -37,6 +38,10 @@ public class GenericUtil {
         }
         sb.delete(sb.length()-joiner.length(),sb.length());
         return sb.toString();
+    }
+
+    public static void pasteData(List<String> text) {
+        pasteData(text.toArray(new String[text.size()]));
     }
 
     //Paste raw data to pastebin.com and open in browser

@@ -71,13 +71,11 @@ public class CONS {
         }
 
 
-        GenericUtil.pasteData(
-                cons.toString(),
-                "A: " + GenericUtil.arrayJoin(counts[0], " "),
-                "C: " + GenericUtil.arrayJoin(counts[1], " "),
-                "G: " + GenericUtil.arrayJoin(counts[2], " "),
-                "T: " + GenericUtil.arrayJoin(counts[3], " ")
-        );
+        System.out.println(cons.toString());
+        System.out.println("A: " + GenericUtil.arrayJoin(counts[0], " "));
+        System.out.println("C: " + GenericUtil.arrayJoin(counts[1], " "));
+        System.out.println("G: " + GenericUtil.arrayJoin(counts[2], " "));
+        System.out.println("T: " + GenericUtil.arrayJoin(counts[3], " "));
     }
 
     public static int getNumericVal(char c) {
